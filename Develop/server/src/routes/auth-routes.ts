@@ -13,7 +13,7 @@ export const login = async (req: Request, res: Response) => {
     return res.status(400).send("Username invalid - login failed.");
   }
   const passwordValid = await bcrypt.compare(password, user.password);
-  if (passwordValid) {
+  if (!passwordValid) {
     return res.status(400).send("Password invalid - login failed.");
   }
   const secretKey = process.env.JWT_SECRET_KEY || "";

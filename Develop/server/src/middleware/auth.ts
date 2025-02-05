@@ -11,7 +11,7 @@ export const authenticateToken = (
   next: NextFunction
 ) => {
   // TODO: verify the token exists and add the user data to the request object✅
-  const authHeader = req.headers.authorization;
+  const authHeader = req.headers.authorization; //Getting the authorization from the headers
   if (authHeader) {
     const token = authHeader.split(" ")[1];
     const secretKey = process.env.JWT_SECRET_KEY || "";
